@@ -98,8 +98,8 @@ class _OrderDetailandAddressState extends State<OrderDetailandAddress> {
         //Order Items Title
         Container(
           margin: const EdgeInsets.only(top: 5),
-          child: Column(
-            children: const [
+          child: const Column(
+            children: [
               Center(
                   child: Text(
                 "ORDER ITEMS",

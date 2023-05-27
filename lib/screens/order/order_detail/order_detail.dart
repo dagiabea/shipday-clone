@@ -23,7 +23,7 @@ class OrderDetail extends StatelessWidget {
           centerTitle: true,
         ),
         body: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: OrderDetailandAddress(
             ordernumber: ordersmodel.orderId.toString(),
             //price: '123.56',

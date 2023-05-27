@@ -37,11 +37,11 @@ class _WaitingOrdersState extends State<WaitingOrders> {
           _getWaitingOrdersData();
         }));
     final url = Uri.parse(
-        'https://shipday-drive-default-rtdb.firebaseio.com/waiting_orders/${index}.json');
+        'https://shipday-drive-default-rtdb.firebaseio.com/waiting_orders/$index.json');
     // final headers = {"Content-type": "application/json"};
 
     loading = true;
-    final json = '{"status": "${status}"}';
+    final json = '{"status": "$status"}';
     final response = await http.patch(url, headers: headers, body: json);
     //loading = false;
 
@@ -77,7 +77,7 @@ class _WaitingOrdersState extends State<WaitingOrders> {
           _getWaitingOrdersData();
         }));
     final url = Uri.parse(
-        'https://shipday-drive-default-rtdb.firebaseio.com/waiting_orders/${index}.json');
+        'https://shipday-drive-default-rtdb.firebaseio.com/waiting_orders/$index.json');
     // final headers = {"Content-type": "application/json"};
 
     loading = true;
@@ -409,10 +409,10 @@ class _WaitingOrdersState extends State<WaitingOrders> {
               child: Container(
                 margin:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text('Current Orders',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -441,10 +441,10 @@ class _WaitingOrdersState extends State<WaitingOrders> {
               child: Container(
                 margin:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text('Waiting Orders',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -476,10 +476,10 @@ class _WaitingOrdersState extends State<WaitingOrders> {
               child: Container(
                 margin:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text('Completed Orders',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -504,10 +504,10 @@ class _WaitingOrdersState extends State<WaitingOrders> {
 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text('Performance',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -531,10 +531,10 @@ class _WaitingOrdersState extends State<WaitingOrders> {
 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text('Profile',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -558,10 +558,10 @@ class _WaitingOrdersState extends State<WaitingOrders> {
 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text('Settings',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -585,10 +585,10 @@ class _WaitingOrdersState extends State<WaitingOrders> {
 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text('Language',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -616,10 +616,10 @@ class _WaitingOrdersState extends State<WaitingOrders> {
                 child: Container(
                   margin:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text('Get Offline',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -651,10 +651,10 @@ class _WaitingOrdersState extends State<WaitingOrders> {
           color: Constants.rejectColor,
           borderRadius: BorderRadius.circular(50)),
       child: TextButton(
-        child: Row(
+        child: const Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               "Reject",
               style: TextStyle(
@@ -683,10 +683,10 @@ class _WaitingOrdersState extends State<WaitingOrders> {
           color: Constants.onthewaycolor,
           borderRadius: BorderRadius.circular(50)),
       child: TextButton(
-        child: Row(
+        child: const Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               "Accept",
               style: TextStyle(

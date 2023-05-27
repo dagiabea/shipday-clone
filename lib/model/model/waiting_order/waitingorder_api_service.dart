@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:tr1/model/model/waiting_order/waiting_order_model.dart';
@@ -15,12 +14,13 @@ class WaitngOrdersApiService {
 
         print(response.body.toString());
         
-        List<WaitingOrder> _model = ordersmodelFromJson(response.body);
-        return _model;
+        List<WaitingOrder> model = ordersmodelFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
     }
+    return null;
   }
 
   Future<List<WaitingOrder>?> postToOrders() async {
@@ -31,12 +31,13 @@ class WaitngOrdersApiService {
 
         print(response.body.toString());
         
-        List<WaitingOrder> _model = ordersmodelFromJson(response.body);
-        return _model;
+        List<WaitingOrder> model = ordersmodelFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
     }
+    return null;
   }
   
 

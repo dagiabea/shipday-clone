@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 
@@ -11,12 +10,13 @@ class ApiService2 {
       var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.usersEndpoint);
       var response = await http.get(url);
       if (response.statusCode == 200) {
-        List<Ordersmodel> _model = ordersmodelFromJson(response.body);
-        return _model;
+        List<Ordersmodel> model = ordersmodelFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
     }
+    return null;
   }
 
 //https://shipday-drive-default-rtdb.firebaseio.com/orders/0/status.json
