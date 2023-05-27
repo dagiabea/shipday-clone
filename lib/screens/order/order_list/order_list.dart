@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:tr1/screens/order/waiting_orders/waitingOrders.dart';
 
 import '../../../map/maputils.dart';
@@ -37,26 +38,29 @@ class _OrderListState extends State<OrderList> {
     'Content-Type': 'application/json; charset=utf-8',
   };
 
-  void _makePutRequest(int index, String status) async {
+  void _makePutRequest(int index, String status, BuildContext context) async {
     loading = true;
     Future.delayed(const Duration(seconds: 2)).then((value) => setState(() {
-            _getData();
-          }));
+          _getData();
+        }));
     final url = Uri.parse(
-        'https://shipday-drive-default-rtdb.firebaseio.com/current_orders/orders/${index}.json');
+        'https://shipday-drive-default-rtdb.firebaseio.com/current_orders/orders/$index.json');
     // final headers = {"Content-type": "application/json"};
 
     loading = true;
-    final json = '{"status": "${status}"}';
+    final json = '{"status": "$status"}';
     final response = await http.patch(url, headers: headers, body: json);
     //loading = false;
 
     if (response.statusCode == 200) {
       
-      Future.delayed(const Duration(seconds: 3)).then((value) => setState(() {
-            _getData();
-          })).then((value) => loading = false);
-
+      Future.delayed(const Duration(seconds: 3))
+          .then((value) => setState(() {
+                _getData();
+                
+              }))
+          .then((value) => loading = false);
+      
       print('Status code: ${response.statusCode}');
     } else {
       loading = false;
@@ -72,13 +76,12 @@ class _OrderListState extends State<OrderList> {
 
   final GlobalKey<ScaffoldState> _drawerscaffoldkey =
       GlobalKey<ScaffoldState>();
-      
+
   @override
   Widget build(BuildContext context) {
-    double screen_width = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      
         appBar: AppBar(
           iconTheme: const IconThemeData(color: Colors.black),
           backgroundColor: Colors.grey[50],
@@ -223,7 +226,7 @@ class _OrderListState extends State<OrderList> {
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {
-                    _makePutRequest(index, "chanh");
+                    _makePutRequest(index, "chanh", context);
                     //setState(() {
                     //changeStatus(0, "started");
                     //_getData();
@@ -465,10 +468,10 @@ class _OrderListState extends State<OrderList> {
             //
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text('Current Orders',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -493,16 +496,17 @@ class _OrderListState extends State<OrderList> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const WaitingOrders()),
+                  MaterialPageRoute(
+                      builder: (context) => const WaitingOrders()),
                 );
               },
               child: Container(
                 margin:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text('Waiting Orders',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -534,10 +538,10 @@ class _OrderListState extends State<OrderList> {
               child: Container(
                 margin:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text('Completed Orders',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -562,10 +566,10 @@ class _OrderListState extends State<OrderList> {
 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text('Performance',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -589,10 +593,10 @@ class _OrderListState extends State<OrderList> {
 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text('Profile',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -616,10 +620,10 @@ class _OrderListState extends State<OrderList> {
 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text('Settings',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -643,10 +647,10 @@ class _OrderListState extends State<OrderList> {
 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text('Language',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -674,10 +678,10 @@ class _OrderListState extends State<OrderList> {
                 child: Container(
                   margin:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text('Get Offline',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -716,7 +720,7 @@ class _OrderListState extends State<OrderList> {
           //   _makePutRequest(index, "started");
           // });
 
-          _makePutRequest(index, "started");
+          _makePutRequest(index, "started", context);
         },
         child: const CircleAvatar(
           radius: 18,
@@ -744,7 +748,7 @@ class _OrderListState extends State<OrderList> {
       margin: const EdgeInsets.only(top: 20, bottom: 5, left: 20, right: 10),
       child: GestureDetector(
         onTap: () {
-          _makePutRequest(index, "picked up");
+          _makePutRequest(index, "picked up", context);
         },
         child: const CircleAvatar(
           radius: 18,
@@ -769,10 +773,10 @@ class _OrderListState extends State<OrderList> {
           color: Constants.pickedupcolor,
           borderRadius: BorderRadius.circular(50)),
       child: TextButton(
-        child: Row(
+        child: const Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               "Mark as Picked Up",
               style: TextStyle(
@@ -791,7 +795,7 @@ class _OrderListState extends State<OrderList> {
           ],
         ),
         onPressed: () {
-          _makePutRequest(index, "picked up");
+          _makePutRequest(index, "picked up", context);
         },
       ),
     );
@@ -806,10 +810,10 @@ class _OrderListState extends State<OrderList> {
           color: Constants.onthewaycolor,
           borderRadius: BorderRadius.circular(50)),
       child: TextButton(
-        child: Row(
+        child: const Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               "Mark as On the way",
               style: TextStyle(
@@ -828,7 +832,7 @@ class _OrderListState extends State<OrderList> {
           ],
         ),
         onPressed: () {
-          _makePutRequest(index, "On the way");
+          _makePutRequest(index, "On the way", context);
         },
       ),
     );
@@ -842,10 +846,10 @@ class _OrderListState extends State<OrderList> {
       decoration: BoxDecoration(
           color: Constants.doneColor, borderRadius: BorderRadius.circular(50)),
       child: TextButton(
-        child: Row(
+        child: const Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               "Mark as Done",
               style: TextStyle(
@@ -856,7 +860,7 @@ class _OrderListState extends State<OrderList> {
           ],
         ),
         onPressed: () {
-          _makePutRequest(index, "Done");
+          _makePutRequest(index, "Done", context);
         },
       ),
     );
@@ -871,10 +875,10 @@ class _OrderListState extends State<OrderList> {
             Container(
               color: Colors.white,
               child: CupertinoActionSheetAction(
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Icon(
                       // <-- Icon
                       Icons.near_me_outlined,
@@ -899,10 +903,10 @@ class _OrderListState extends State<OrderList> {
             Container(
               color: Colors.white,
               child: CupertinoActionSheetAction(
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Icon(
                       // <-- Icon
                       Icons.near_me_outlined,
@@ -936,6 +940,19 @@ class _OrderListState extends State<OrderList> {
               Navigator.pop(context);
             },
           )),
+    );
+  }
+
+  void snackBar(BuildContext context, String status) {
+    final snackBar = SnackBar(
+      elevation: 0,
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      content: AwesomeSnackbarContent(
+        title: 'Sorry!',
+        message: 'Status changed to $status',
+        contentType: ContentType.failure,
+      ),
     );
   }
 }

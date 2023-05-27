@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "108205942195",
+    "firebase_url": "https://shipday-drive-default-rtdb.firebaseio.com",
+    "project_id": "shipday-drive",
+    "storage_bucket": "shipday-drive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108205942195:android:a3d686d62f3267eb2197c6",
+        "android_client_info": {
+          "package_name": "com.example.tr1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "108205942195-snnjh1tipk75hrsu68ljf3e572dc7vst.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxWjumKKrk8y4AcmqAM0mURqZtkVWDXYk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "108205942195-snnjh1tipk75hrsu68ljf3e572dc7vst.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "108205942195-vic0ng2c98pm8eqgva7luo8tp0lggs61.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tr1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

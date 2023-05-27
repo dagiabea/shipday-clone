@@ -11,10 +11,10 @@ class Constants {
 
   static Color primaryColor = const Color(0xff5511b0);
 
-  static Color onthewaycolor = Color.fromARGB(255, 17, 194, 126);
+  static Color onthewaycolor = const Color.fromARGB(255, 17, 194, 126);
   static Color pickedupcolor = const Color(0xff5511b0);
   static Color rejectColor = Colors.red;
-  static Color doneColor = Color.fromARGB(255, 6, 150, 11);
+  static Color doneColor = const Color.fromARGB(255, 6, 150, 11);
 }
 
 class ApiConstants {
