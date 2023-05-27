@@ -1,5 +1,7 @@
 # tr1
-ScreenShots.png
+Screenshots
+
+![alt text](https://github.com/dagiabea/shipday-clone/blob/master/ScreenShots.png)
 A Shipday clone flutter project.
 ![ScreenShots](https://github.com/dagiabea/shipday-clone/assets/52936941/d7255725-6aaa-4ff8-b13d-451fef48bf2e)
 
